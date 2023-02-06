@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\PengaduanController;
 use App\Http\Controllers\Admin\PetugasController;
 use App\Http\Controllers\Admin\MasyarakatController;
 use App\Http\Controllers\Admin\LaporanController;
+use App\Http\Controllers\Admin\TanggapanController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -45,4 +46,6 @@ Route::prefix('admin')->group(function () {
     Route::resource('petugas', PetugasController::class);
     Route::resource('masyarakat', MasyarakatController::class);
     Route::get('laporan', [LaporanController::class, 'index'])->name('laporan.index');
+
+    Route::post('tanggapan/createOrUpdate', [TanggapanController::class, 'createOrUpdate'])->name('tanggapan.createOrUpdate');
 });

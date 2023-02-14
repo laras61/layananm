@@ -23,6 +23,6 @@ class DatabaseSeeder extends Seeder
             'level' => 'admin',
         ]);
 
-        
+
     }
 }

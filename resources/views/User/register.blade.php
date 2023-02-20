@@ -21,8 +21,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-lg-5">
-            <h2 class="text-center text-white mb-0 mt-5">PEKAT</h2>
-            <P class="text-center text-white mb-5">Pengaduan Masyarakat</P>
+            <h2 class="text-center text-white mb-0 mt-5">LARAS</h2>
+            <P class="text-center text-white mb-5">Layanan Resmi Aduan Masyarakat</P>
             <div class="card mt-5">
                 <div class="card-body">
                     <h2 class="text-center mb-5">FORM DAFTAR</h2>
@@ -47,12 +47,12 @@
                     </form>
                 </div>
             </div>
-            @if (Session::has('pesan'))
+            @if (Illuminate\Support\Facades\Session::has('pesan'))
             <div class="alert alert-danger mt-2">
-                {{ Session::get('pesan') }}
+                {{ Illuminate\Support\Facades\Session::get('pesan') }}
             </div>
             @endif
-            <a href="{{ route('pekat.index') }}" class="btn btn-warning text-white mt-3" style="width: 100%">Kembali ke Halaman Utama</a>
+            <a href="{{ route('pengaduan.jumlahLaporan') }}" class="btn btn-warning text-white mt-3" style="width: 100%">Kembali ke Halaman Utama</a>
         </div>
     </div>
 </div>

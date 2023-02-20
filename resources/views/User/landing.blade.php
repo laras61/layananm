@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{ asset('css/landing.css') }}">
 @endsection
 
-@section('title', 'PEKAT - Pengaduan Masyarakat')
+@section('title', 'Laras - Laporan Resmi Aduan Masyarakat')
 
 @section('content')
 {{-- Section Header --}}
@@ -13,22 +13,22 @@
         <div class="container">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <h4 class="semi-bold mb-0 text-white">PEKAT</h4>
-                    <p class="italic mt-0 text-white">Pengaduan Masyarakat</p>
+                    <h4 class="semi-bold mb-0 text-white">LARAS</h4>
+                    <p class="italic mt-0 text-white">Layanan Resmi Aduan Masyarakat</p>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    @if(Auth::guard('masyarakat')->check())
+                    @if(Illuminate\Support\Facades\Auth::guard('masyarakat')->check())
                     <ul class="navbar-nav text-center ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link ml-3 text-white" href="{{ route('pekat.laporan') }}">Laporan</a>
+                            <a class="nav-link ml-3 text-white" href="{{ route('pekat.laporan') }}">{{ Illuminate\Support\Facades\Auth::guard('masyarakat')->user()->nama }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link ml-3 text-white" href="{{ route('pekat.logout') }}"
-                                style="text-decoration: underline">{{ Auth::guard('masyarakat')->user()->nama }}</a>
+                                style="text-decoration: underline">Logout</a>
                         </li>
                     </ul>
                     @else
@@ -68,11 +68,10 @@
                 @endforeach
             @endif
 
-            @if (Session::has('pengaduan'))
+            @if (Illuminate\Support\Facades\Session::has('pengaduan'))
                 <div class="alert alert-{{ Session::get('type') }}">{{ Session::get('pengaduan') }}</div>
             @endif
 
-            <div class="card mb-3">Tulis Laporan Disini</div>
             <form action="{{ route('pekat.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
@@ -92,7 +91,7 @@
     <div class="bg-purple">
         <div class="text-center">
             <h5 class="medium text-white mt-3">JUMLAH LAPORAN SEKARANG</h5>
-            <h2 class="medium text-white">10</h2>
+            <h2 class="medium text-white">{{$pengaduan->count()}}</h2>
         </div>
     </div>
 </div>
@@ -100,7 +99,7 @@
 <div class="mt-5">
     <hr>
     <div class="text-center">
-        <p class="italic text-secondary">© 2021 Ihsanfrr • All rights reserved</p>
+        <p class="italic text-secondary">© 2023 Larasmlt • Aplikasi Pengaduan Masyarakat</p>
     </div>
 </div>
 {{-- Modal --}}
@@ -122,9 +121,9 @@
                     </div>
                     <button type="submit" class="btn btn-purple text-white mt-3" style="width: 100%">MASUK</button>
                 </form>
-                @if (Session::has('pesan'))
+                @if (Illuminate\Support\Facades\Session::has('pesan'))
                 <div class="alert alert-danger mt-2">
-                    {{ Session::get('pesan') }}
+                    {{ Illuminate\Support\Facades\Session::get('pesan') }}
                 </div>
                 @endif
             </div>
@@ -134,7 +133,7 @@
 @endsection
 
 @section('js')
-    @if (Session::has('pesan'))
+    @if (Illuminate\Support\Facades\Session::has('pesan'))
     <script>
         $('#loginModal').modal('show');
 

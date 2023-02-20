@@ -27,7 +27,7 @@
                     <td>
                         @if ($v->status == '0')
                             <a href="#" class="badge badge-danger">Pending</a>
-                        @elseif ($v->status = 'proses')
+                        @elseif ($v->status == 'proses')
                             <a href="#" class="badge badge-warning text-white">Proses</a>
                         @else
                             <a href="#" class="badge badge-success">Selesai</a>

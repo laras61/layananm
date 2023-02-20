@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\MasyarakatController;
 use App\Http\Controllers\Admin\LaporanController;
 use App\Http\Controllers\Admin\TanggapanController;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\User\jumlahPengaduanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', [UserController::class, 'index'])->name('pekat.index');
+//Route::get('/', [UserController::class, 'index'])->name('pekat.index');
 
 Route::middleware(['isMasyarakat'])->group(function () {
         Route::post('/store', [UserController::class, 'storePengaduan'])->name('pekat.store');
@@ -49,6 +50,8 @@ Route::prefix('admin')->group(function () {
 
         //Laporan
         Route::get('laporan', [LaporanController::class, 'index'])->name('laporan.index');
+        Route::post('getLaporan', [LaporanController::class, 'getLaporan'])->name('laporan.getLaporan');
+        Route::get('laporan/cetak/{from}/{to}', [LaporanController::class, 'cetakLaporan'])->name('laporan.cetakLaporan');
     });
 
     Route::middleware(['isPetugas'])->group(function () {
@@ -57,6 +60,7 @@ Route::prefix('admin')->group(function () {
 
         //Pengaduan
         Route::resource('pengaduan', PengaduanController::class);
+        Route::get('/', [jumlahPengaduanController::class, 'index'])->name('pengaduan.jumlahLaporan');
 
         //Tanggapan
         Route::post('tanggapan/createOrUpdate', [TanggapanController::class, 'createOrUpdate'])->name('tanggapan.createOrUpdate');
@@ -66,7 +70,7 @@ Route::prefix('admin')->group(function () {
     });
 
     Route::middleware(['isGuest'])->group(function () {
-        Route::get('/', [AdminController::class, 'formLogin'])->name('admin.formLogin');
+        Route::get('/login', [AdminController::class, 'formLogin'])->name('admin.formLogin');
         Route::post('/login', [AdminController::class, 'login'])->name('admin.login');
     });
 

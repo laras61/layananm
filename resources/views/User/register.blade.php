@@ -3,11 +3,11 @@
 @section('css')
 <style>
     body {
-        background: #6a70fc;
+        background: #feeecd;
     }
 
     .btn-purple {
-        background: #6a70fc;
+        background: #d7b791;
         width: 100%;
         color: #fff;
     }
@@ -21,11 +21,11 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-lg-5">
-            <h2 class="text-center text-white mb-0 mt-5">LARAS</h2>
-            <P class="text-center text-white mb-5">Layanan Resmi Aduan Masyarakat</P>
+            <h2 class="text-center text-muted mb-0 mt-5">LARAS</h2>
+            <P class="text-center text-secondary mb-5">Layanan Resmi Aduan Masyarakat</P>
             <div class="card mt-5">
                 <div class="card-body">
-                    <h2 class="text-center mb-5">FORM DAFTAR</h2>
+                    <h2 class="text-center text-secondary mb-5">FORM DAFTAR</h2>
                     <form action="{{ route('pekat.register') }}" method="POST">
                         @csrf
                         <div class="form-group">
@@ -52,7 +52,7 @@
                 {{ Illuminate\Support\Facades\Session::get('pesan') }}
             </div>
             @endif
-            <a href="{{ route('pengaduan.jumlahLaporan') }}" class="btn btn-warning text-white mt-3" style="width: 100%">Kembali ke Halaman Utama</a>
+            <a href="{{ route('pekat.index') }}" class="btn text-white mt-3" style="background-color:#2e3d50; width: 100%" style="width: 100%">Kembali ke Halaman Utama</a>
         </div>
     </div>
 </div>

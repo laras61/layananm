@@ -12,9 +12,9 @@
     <title>Laporan Pengaduan</title>
 </head>
 <body>
+    <a href="https://ibb.co/7nTy5BF"><img src="https://i.ibb.co/YcKjMJG/Screenshot-49.png" alt="Screenshot-49" border="0" /></a>
     <div class="text-center">
         <h5>Laporan Pengaduan Masyarakat</h5>
-        <h6>lrs61.git</h6>
     </div>
     <div class="container">
         <table class="table">

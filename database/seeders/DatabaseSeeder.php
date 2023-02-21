@@ -16,11 +16,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         \App\Models\Petugas::create([
-            'nama_petugas' => 'Administrator',
-            'username' => 'admin',
-            'password' => Hash::make('password'),
-            'telp' => '0899713456',
-            'level' => 'admin',
+
+                'nama_petugas' => 'Administrator',
+                'username' => 'admin',
+                'password' => Hash::make('password'),
+                'telp' => '0899713456',
+                'level' => 'admin',
+
         ]);
 
 

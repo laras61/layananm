@@ -6,9 +6,9 @@
 
 @section('content')
     <div class="row">
-        <div class="col-lg-4 col-12">
-            <div class="card">
-                <div class="card-header">
+        <div class="col-lg-4 col-12" >
+            <div class="card" >
+                <div class="card-header text-white" style="background-color: #2e3d50;">
                     Cari Berdasarkan Tanggal
                 </div>
                 <div class="card-body">
@@ -21,7 +21,7 @@
                         <div class="form-group">
                             <input type="text" name="to" class="form-control" placeholder="Tanggal Akhir" onfocusin="(this.type='date')" onfocusout="
                             (this.type='text')">
-                            <button type="submit" class="btn btn-purple mt-3" style="width: 100%">Cari Laporan</button>
+                            <button type="submit" class="btn mt-3" style="background-color: #ddcfb4; width:100%;">Cari Laporan</button>
                         </div>
                     </form>
                 </div>
@@ -29,7 +29,7 @@
         </div>
         <div class="col-lg-8 col-12">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header text-white" style="background-color: #2e3d50;">
                     Data Berdasarkan Tanggal
                     <div class="float-right">
                         @if ($pengaduan ?? '')
@@ -55,14 +55,14 @@
                                         <td>{{ $v->tgl_pengaduan }}</td>
                                         <td>{{ $v->isi_laporan }}</td>
                                         <td>
-                                         @if ($v ->status = '0')
-                                    <a href="#" class="badge badge-danger">Pending</a>
-                                        @elseif ($v ->status = 'proses')
-                                            <a href="#" class="bagde badge-warning text-white">Proses</a>
+                                         @if ($v ->status == '0')
+                                            <a href="#" class="badge badge-danger">Pending</a>
+                                        @elseif ($v ->status == 'proses')
+                                            <a href="#" class="badge badge-warning text-white">Proses</a>
                                         @else
-                                            <a href="#" class="badge badge-warning succes">Selesai</a>
+                                            <a href="#" class="badge badge-success">Selesai</a>
                                         @endif
-                                                </td>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

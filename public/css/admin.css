@@ -25,7 +25,7 @@ a:focus {
 
 .navbar {
   padding: 15px 10px;
-  background: #fff;
+  background: #ABB6C8;
   border: none;
   border-radius: 0;
   margin-bottom: 40px;
@@ -58,7 +58,7 @@ a:focus {
 #sidebar {
   min-width: 250px;
   max-width: 250px;
-  background: #6a70fc;
+  background: #667da0;
   color: #fff;
   transition: all 0.6s cubic-bezier(0.945, 0.02, 0.27, 0.665);
   transform-origin: bottom left;
@@ -71,12 +71,13 @@ a:focus {
 
 #sidebar .sidebar-header {
   padding: 20px;
-  background: #797dfd;
+  background: #5d7599;
+
 }
 
 #sidebar ul.components {
   padding: 20px 0;
-  border-bottom: 1px solid #6a70fc;
+  border-bottom: 1px solid #5d7cad;
 }
 
 #sidebar ul p {

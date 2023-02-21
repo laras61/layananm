@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\LaporanController;
 use App\Http\Controllers\Admin\TanggapanController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\jumlahPengaduanController;
+use App\Http\Controllers\Petugas\Petugas2Controller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Route::get('/', [UserController::class, 'index'])->name('pekat.index');
+Route::get('/', [jumlahPengaduanController::class, 'index'])->name('pekat.index');
 
 Route::middleware(['isMasyarakat'])->group(function () {
         Route::post('/store', [UserController::class, 'storePengaduan'])->name('pekat.store');
@@ -56,11 +57,11 @@ Route::prefix('admin')->group(function () {
 
     Route::middleware(['isPetugas'])->group(function () {
         //Dashboard
-        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+        Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 
         //Pengaduan
         Route::resource('pengaduan', PengaduanController::class);
-        Route::get('/', [jumlahPengaduanController::class, 'index'])->name('pengaduan.jumlahLaporan');
+        // Route::get('/', [jumlahPengaduanController::class, 'index'])->name('pekat.index');
 
         //Tanggapan
         Route::post('tanggapan/createOrUpdate', [TanggapanController::class, 'createOrUpdate'])->name('tanggapan.createOrUpdate');
@@ -75,3 +76,4 @@ Route::prefix('admin')->group(function () {
     });
 
 });
+

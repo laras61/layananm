@@ -11,7 +11,7 @@ class jumlahPengaduanController extends Controller
 {
     public function index()
     {
-        $pengaduan = DB::table('pengaduans')->get();
+        $pengaduan = Pengaduan::all()->count();
 
         // dd($pengaduan);
 

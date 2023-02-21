@@ -28,7 +28,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link ml-3 text-white" href="{{ route('pekat.logout') }}"
-                                style="text-decoration: underline">Logout</a>
+                                style="text-decoration: underline" onclick="return confirm('Logout Now?')">Logout</a>
                         </li>
                     </ul>
                     @else
@@ -78,6 +78,7 @@
                     <textarea name="isi_laporan" placeholder="Masukkan Isi Laporan" class="form-control"
                         rows="4">{{ old('isi_laporan') }}</textarea>
                 </div>
+
                 <div class="form-group">
                     <input type="file" name="foto" class="form-control">
                 </div>
@@ -91,13 +92,13 @@
     <div class="bg-purple">
         <div class="text-center">
             <h5 class="medium text-white mt-3">JUMLAH LAPORAN SEKARANG</h5>
-            <h2 class="medium text-white">{{$pengaduan->count()}}</h2>
+            <h2 class="medium text-white">{{$pengaduan}}</h2>
         </div>
     </div>
 </div>
 {{-- Footer --}}
-<div class="mt-5">
-    <hr>
+<div class="mt-3">
+
     <div class="text-center">
         <p class="italic text-secondary">© 2023 Larasmlt • Aplikasi Pengaduan Masyarakat</p>
     </div>

@@ -92,6 +92,7 @@ return [
             'model' => App\Models\Petugas::class,
         ],
 
+
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

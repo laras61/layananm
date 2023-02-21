@@ -7,7 +7,7 @@
 @section('header', 'Data Petugas')
 
 @section('content')
-    <a href="{{ route('petugas.create') }}" class="btn btn-purple mb-2">Tambah Petugas</a>
+    <a href="{{ route('petugas.create') }}" class="btn mb-2 text-white" style="background-color: #2e3d50;">Tambah Petugas</a>
     <table id="PetugasTable" class="table">
         <thead>
             <tr>

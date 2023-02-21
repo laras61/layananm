@@ -13,20 +13,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     @yield('css')
 
-    <style>
-        .btn-purple{
-            background: #272253;
-            border: 1px solid #272253;
-            color: #fff;
-        }
-
-        .btn-purple:hover {
-            background: #272253;
-            border: 1px solid #272253;
-            color: #fff;
-        }
-    </style>
-
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 
 </head>
@@ -36,8 +22,11 @@
     <div class="wrapper">
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3 class="mb-0">LARAS</h3>
-                <p class="text-white mb-0">Layanan Resmi Aduan Masyarakat</p>
+                <span class="d-flex" style="align-content: center;gap:10px;">
+                    <i class="bi bi-bank"></i>
+                    <span>LARAS</span>
+                </span>
+                <p class="text-white  mb-0" style="font-size: 12px">Layanan Resmi Aduan Masyarakat</p>
             </div>
 
             <ul class="list-unstyled components">
@@ -47,6 +36,9 @@
                 <li class="{{ Illuminate\Support\Facades\Request::is('admin\pengaduan') ? 'active' : '' }}">
                     <a href="{{ route('pengaduan.index') }}">Pengaduan</a>
                 </li>
+
+                @if (Illuminate\Support\Facades\Auth::guard('admin')->user()->level == 'admin')
+
                 <li class="{{ Illuminate\Support\Facades\Request::is('admin\petugas') ? 'active' : '' }}">
                     <a href="{{ route('petugas.index') }}">Petugas</a>
                 </li>
@@ -56,8 +48,10 @@
                 <li class="{{ Illuminate\Support\Facades\Request::is('admin\laporan') ? 'active' : '' }}">
                     <a href="{{ route('laporan.index') }}">Laporan</a>
                 </li>
+
+                @endif
                 <li class="{{ Illuminate\Support\Facades\Request::is('admin\logout') }}">
-                    <a href="{{ route('admin.logout') }}"><i class="bi bi-box-arrow-right"></i> Logout</a>
+                    <a href="{{ route('admin.logout') }}" onclick="return confirm('Logout Now?')"><i class="bi bi-box-arrow-right"></i> Logout</a>
                 </li>
             </ul>
         </nav>
@@ -72,7 +66,7 @@
                         <span></span>
                         <span></span>
                     </button>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto"  type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-align-justify"></i>

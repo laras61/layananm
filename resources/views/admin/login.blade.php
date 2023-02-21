@@ -10,28 +10,28 @@
 
     <style>
         body {
-            background: #6a70fc;
+            background: #feeecd;
         }
 
         .btn-purple {
-            background: #6a70fc;
+            background: #d7b791;
             width: 100%;
             color: #fff;
         }
     </style>
 
-    <title>Halaman Masuk Petugas</title>
+    <title>Halaman Masuk Admin / Petugas</title>
 </head>
 <body>
 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-lg-5">
-            <h2 class="text-center text-white mb-0 mt-5">LARAS</h2>
-            <P class="text-center text-white mb-5">Layananan Resmi Aduan Masyarakat</P>
+            <h1 class="text-center text-muted mb-0 mt-5">LARAS</h1>
+            <h5 class="text-center text-secondary mb-5">Layanan Resmi Aduan Masyarakat</h5>
             <div class="card mt-5">
                 <div class="card-body">
-                    <h2 class="text-center mb-5">FORM PETUGAS</h2>
+                    <h2 class="text-center text-secondary mb-5">FORM LOGIN</h2>
                     <form action="{{ route('admin.login') }}" method="POST">
                         @csrf
                         <div class="form-group">
@@ -40,7 +40,7 @@
                         <div class="form-group">
                             <input type="password" name="password" placeholder="Password" class="form-control">
                         </div>
-                        <button type="submit" class="btn btn-purple">MASUK</button>
+                        <button type="submit" class="btn btn-purple" >MASUK</button>
                     </form>
                 </div>
             </div>
@@ -49,7 +49,7 @@
                 {{ Illuminate\Support\Facades\Session::get('pesan') }}
             </div>
             @endif
-            <a href="{{ route('pekat.index') }}" class="btn btn-warning text-white mt-3" style="width: 100%">Kembali ke Halaman Utama</a>
+            <a href="{{ route('pekat.index') }}" class="btn text-white mt-3" style="background-color:#2e3d50; width: 100%">Kembali ke Halaman Utama</a>
         </div>
     </div>
 </div>

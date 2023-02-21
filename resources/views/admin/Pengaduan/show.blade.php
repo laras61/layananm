@@ -27,7 +27,7 @@
 
 @section('header')
     <a href="{{ route('pengaduan.index') }}" class="text-primary">Data Pengaduan</a>
-    <a href="#" class="text-grey"></a>
+    <a href="#" class="text-grey">/</a>
     <a href="#" class="text-grey">Detail Pengaduan</a>
 @endsection
 
@@ -35,7 +35,7 @@
     <div class="row">
         <div class="col-lg-6 col-12">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header text-white" style="background-color: #8894ac">
                     <div class="text-center">
                         Pengaduan Masyarakat
                     </div>
@@ -78,7 +78,7 @@
         </div>
         <div class="col-lg-6 col-12">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header text-white" style="background-color: #8894ac">
                     <div class="text-center">
                         Tanggapan Petugas
                     </div>
@@ -111,7 +111,7 @@
                             <label for="tanggapan">Tanggapan</label>
                             <textarea name="isi_tanggapan" id="isi_tanggapan" rows="4" class="form-control" placeholder="Belum ada tanggapan">{{ $isi_tanggapan->isi_tanggapan ?? '' }}</textarea>
                         </div>
-                        <button type="submit" class="btn btn-purple">KIRIM</button>
+                        <button type="submit" class="btn text-dark" style="background-color: #ddcfb4; width:100%;">KIRIM</button>
                     </form>
                     @if (Illuminate\Support\Facades\Session::has('status'))
                         <div class="alert alert-succes mt-2">

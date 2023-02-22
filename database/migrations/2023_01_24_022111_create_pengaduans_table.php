@@ -17,7 +17,11 @@ return new class extends Migration
             $table->id('id_pengaduan');
             $table->dateTime('tgl_pengaduan');
             $table->char('nik',16);
+            $table->text('judul');
             $table->text('isi_laporan');
+            $table->date('tgl_kejadian');
+            $table->text('lokasi');
+            $table->enum('kategori', ['agama', 'covid', 'lingkungan', 'kesehatan', 'dikbud', 'sosial']);
             $table->string('foto');
             $table->enum('status', ['0', 'proses', 'selesai']);
 

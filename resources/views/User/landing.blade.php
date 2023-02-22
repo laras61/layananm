@@ -10,11 +10,16 @@
 {{-- Section Header --}}
 <section class="header">
     <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-        <div class="container">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <h4 class="semi-bold mb-0 text-white">LARAS</h4>
-                    <p class="italic mt-0 text-white">Layanan Resmi Aduan Masyarakat</p>
+        {{-- <div class="container"> --}}
+            <div class="container-fluid mb-2">
+                <a class="navbar-brand " href="#">
+                    <div class="d-flex">
+                        <img src="images/kota.png" style="width: 5%; height: 10%" alt="icon">
+                        <div >
+                            <h4 class="semi-bold mb-0 text-white">LARAS
+                            <p class="italic mt-0 text-white">Layanan Resmi Aduan Masyarakat</p>
+                        </div>
+                    </div>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,11 +49,12 @@
                     @endauth
                 </div>
             </div>
-        </div>
+        {{-- </div> --}}
     </nav>
 
     <div class="text-center">
-        <h2 class="medium text-white mt-3">Layanan Pengaduan Masyarakat</h2>
+        <h2 class=" text-white mt-3">Layanan Pengaduan Masyarakat</h2>
+        <h4 class=" text-white">Kota Bogor</h4>
         <p class="italic text-white mb-5">Sampaikan laporan Anda langsung kepada yang pemerintah berwenang</p>
     </div>
 
@@ -75,8 +81,26 @@
             <form action="{{ route('pekat.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
+                    <input name="judul" class="form-control mb-2" placeholder="Masukkan Judul Laporan" rows="2">
                     <textarea name="isi_laporan" placeholder="Masukkan Isi Laporan" class="form-control"
                         rows="4">{{ old('isi_laporan') }}</textarea>
+                    </div>
+                    <input name="tgl_kejadian" type="date" placeholder="Pilih Tanggal Kejadian" class="form-control mt-2"
+                        rows="1" onfocusin="(this.type='date')" onfocusout="(this.type='text')">
+                    <input name="lokasi" type="text" placeholder="Ketik Lokasi Kejadian" class="form-control mt-2">
+                    <div class="input-group mb-3">
+                        <select name="kategori" class="custom-select mt-2">
+                            <option selected>Pilih Kategori Laporan</option>
+                            <option value="agama">Agama</option>
+                            <option value="covid">Corona Virus</option>
+                            <option value="kesehatan">Pelayanan Kesehatan</option>
+                            <option value="lingkungan">Lingkungan Hidup</option>
+                            <option value="dikbud">Pendidikan dan Kebudayaan</option>
+                            <option value="sosial">Sosial</option>
+                        </select>
+                    </div>
+                <div class="form-group">
+
                 </div>
 
                 <div class="form-group">

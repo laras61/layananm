@@ -63,17 +63,36 @@
                 <div class="alert alert-{{ Illuminate\Support\Facades\Session::get('type') }}">{{ Illuminate\Support\Facades\Session::get('pengaduan') }}</div>
                 @endif
                 <div class="card mb-3">Tulis Laporan Disini</div>
-                <form action="{{ route('pekat.store') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div class="form-group">
-                        <textarea name="isi_laporan" placeholder="Masukkan Isi Laporan" class="form-control"
-                            rows="4">{{ old('isi_laporan') }}</textarea>
-                    </div>
-                    <div class="form-group">
-                        <input type="file" name="foto" class="form-control">
-                    </div>
-                    <button type="submit" class="btn btn-custom mt-2">Kirim</button>
-                </form>
+                    <form action="{{ route('pekat.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group">
+                            <input name="judul" class="form-control mb-2" placeholder="Masukkan Judul Laporan" rows="2">
+                            <textarea name="isi_laporan" placeholder="Masukkan Isi Laporan" class="form-control"
+                                rows="4">{{ old('isi_laporan') }}</textarea>
+                            </div>
+                            <input name="tgl_kejadian" type="date" placeholder="Pilih Tanggal Kejadian" class="form-control mt-2"
+                                rows="1" onfocusin="(this.type='date')" onfocusout="(this.type='text')">
+                            <input name="lokasi" type="text" placeholder="Ketik Lokasi Kejadian" class="form-control mt-2">
+                            <div class="input-group mb-3">
+                                <select name="kategori" class="custom-select mt-2">
+                                    <option selected>Pilih Kategori Laporan</option>
+                                    <option value="agama">Agama</option>
+                                    <option value="covid">Corona Virus</option>
+                                    <option value="kesehatan">Kesehatan</option>
+                                    <option value="lingkungan">Lingkungan Hidup</option>
+                                    <option value="dikbud">Pendidikan dan Kebudayaan</option>
+                                    <option value="sosial">Sosial</option>
+                                </select>
+                            </div>
+                        <div class="form-group">
+
+                        </div>
+
+                        <div class="form-group">
+                            <input type="file" name="foto" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-custom mt-2">Kirim</button>
+                    </form>
             </div>
         </div>
         <div class="col-lg-4 col-md-12 col-sm-12 col-12 col">
@@ -140,18 +159,18 @@
                 </div>
             </div>
             <div class="laporan-mid">
-                <div class="judul-laporan">
-                    {{ $v->judul_laporan }}
+                <div class="judul">
+                    {{ $v->judul}}
                 </div>
                 <p>{{ $v->isi_laporan }}</p>
             </div>
             <div class="laporan-bottom">
                 @if ($v->foto != null)
-                <img src="{{ Illuminate\Support\Facades\Storage::url($v->foto) }}" alt="{{ 'Gambar '.$v->judul_laporan }}" class="gambar-lampiran">
+                    <img src="{{ Illuminate\Support\Facades\Storage::url($v->foto) }}" alt="{{ 'Gambar '.$v->judul }}" class="gambar-lampiran">
                 @endif
                 @if ($v->tanggapan != null)
-                <p class="mt-3 mb-1">{{ '*Tanggapan dari '. $v->tanggapan->petugas->nama_petugas }}</p>
-                <p class="light">{{ $v->tanggapan->tanggapan }}</p>
+                    <p class="mt-3 mb-1">{{ '*Tanggapan dari '. $v->tanggapan->petugas->nama_petugas }}</p>
+                    <p class="light">{{ $v->tanggapan->tanggapan }}</p>
                 @endif
             </div>
             <hr>

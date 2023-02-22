@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Pengaduan;
 use App\Models\Tanggapan;
+use App\Models\Masyarakat;
 use Illuminate\Http\Request;
 
 class PengaduanController extends Controller
@@ -20,10 +21,12 @@ class PengaduanController extends Controller
     {
         $pengaduan = Pengaduan::where('id_pengaduan', $id_pengaduan)->first();
 
+        $masyarakat = Masyarakat::where('nik', $pengaduan->nik)->first();
+
         $tanggapan = Tanggapan::where('id_pengaduan', $id_pengaduan)->first();
 
-        return view('Admin.Pengaduan.show', ['pengaduan' => $pengaduan, 'tanggapan' => $tanggapan]);
+        return view('Admin.Pengaduan.show', ['pengaduan' => $pengaduan, 'tanggapan' => $tanggapan, 'masyarakat' => $masyarakat]);
     }
 
-    
+
 }

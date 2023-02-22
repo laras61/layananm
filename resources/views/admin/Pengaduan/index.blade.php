@@ -12,8 +12,12 @@
         <thead>
             <tr>
                 <th>No</th>
-                <th>Tanggal</th>
+                <th>Tanggal Laporan</th>
+                <th>Judul Laporan</th>
                 <th>Isi Laporan</th>
+                <th>Tanggal Kejadian</th>
+                <th>Lokasi</th>
+                <th>Kategori Laporan</th>
                 <th>Status</th>
                 <th>Detail</th>
             </tr>
@@ -22,8 +26,26 @@
             @foreach ($pengaduan as $k => $v )
                 <tr>
                     <td>{{ $k += 1 }}</td>
+                    <td>{{ $v->judul}}</td>
                     <td>{{ $v->tgl_pengaduan->format('d-M-Y')}}</td>
                     <td>{{ $v->isi_laporan }}</td>
+                    <td>{{ $v->tgl_kejadian->format('d-M-Y')}}</td>
+                    <td>{{ $v->lokasi}}</td>
+                    <td>
+                        @if ($v->kategori == 'agama')
+                           <p>Agama</p>
+                        @elseif ($v->kategori == 'covid')
+                            <p>Corona Virus</p>
+                        @elseif ($v->kategori == 'kesehatan')
+                            <p>Pelayanan Kesehatan</p>
+                        @elseif ($v->kategori == 'lingkungan')
+                            <p>Lingkungan Hidup</p>
+                        @elseif ($v->kategori == 'dikbud')
+                            <p>Pendidikan dan Kebudayaan</p>
+                        @else
+                            <p>Sosial</p>
+                        @endif
+                    </td>
                     <td>
                         @if ($v->status == '0')
                             <a href="#" class="badge badge-danger">Pending</a>

@@ -49,14 +49,58 @@
                                 <td>{{ $pengaduan ->nik}}</td>
                             </tr>
                             <tr>
+                                <th>Nama Masyarakat</th>
+                                <td>:</td>
+                                <td>{{ $masyarakat->nama}}</td>
+                            </tr>
+                            <tr>
+                                <th>Tanggal Pengaduan</th>
+                                <td>:</td>
+                                <td>{{ $pengaduan->tgl_pengaduan}}</td>
+                            </tr>
+                            <tr>
                                 <th>Foto</th>
                                 <td>:</td>
                                 <td><img src="{{ Illuminate\Support\Facades\Storage::url($pengaduan->foto) }}" alt="Foto Pengaduan" class='embed-responsive'></td>
                             </tr>
                             <tr>
+                                <th>Judul</th>
+                                <td>:</td>
+                                <td>{{ $pengaduan->judul}}</td>
+                            </tr>
+                            <tr>
                                 <th>Isi Laporan</th>
                                 <td>:</td>
                                 <td>{{ $pengaduan->isi_laporan}}</td>
+                            </tr>
+                            <tr>
+                                <th>Tanggal Kejadian</th>
+                                <td>:</td>
+                                <td>{{ $pengaduan->tgl_kejadian}}</td>
+                            </tr>
+                            <tr>
+                                <th>Kategori Laporan</th>
+                                <td>:</td>
+                                <td>
+                                    @if ($pengaduan->kategori == 'agama')
+                                        <p>Agama</p>
+                                    @elseif ($pengaduan->kategori == 'covid')
+                                        <p>Corona Virus</p>
+                                    @elseif ($pengaduan->kategori == 'kesehatan')
+                                        <p>Pelayanan Kesehatan</p>
+                                    @elseif ($pengaduan->kategori == 'lingkungan')
+                                        <p>Lingkungan Hidup</p>
+                                    @elseif ($pengaduan->kategori == 'dikbud')
+                                        <p>Pendidikan dan Kebudayaan</p>
+                                    @else
+                                        <p>Sosial</p>
+                                    @endif
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Lokasi Kejadian</th>
+                                <td>:</td>
+                                <td>{{ $pengaduan->lokasi}}</td>
                             </tr>
                             <tr>
                                 <th>Status</th>

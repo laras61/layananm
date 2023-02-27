@@ -30,6 +30,7 @@
                 <td>
                     <a href="{{ route('petugas.edit', $v->id_petugas) }}" class="btn btn-primary bi bi-pencil-square"></a>
 
+                    
                     <form action="{{ route('petugas.destroy', $v->id_petugas) }}" class="d-inline-block" method="POST">
                         @csrf
                         @method('DELETE')

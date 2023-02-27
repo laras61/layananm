@@ -165,12 +165,13 @@
                 <p>{{ $v->isi_laporan }}</p>
             </div>
             <div class="laporan-bottom">
+                
                 @if ($v->foto != null)
                     <img src="{{ Illuminate\Support\Facades\Storage::url($v->foto) }}" alt="{{ 'Gambar '.$v->judul }}" class="gambar-lampiran">
                 @endif
                 @if ($v->tanggapan != null)
                     <p class="mt-3 mb-1">{{ '*Tanggapan dari '. $v->tanggapan->petugas->nama_petugas }}</p>
-                    <p class="light">{{ $v->tanggapan->tanggapan }}</p>
+                    <p class="light">{{ $v->tanggapan->isi_tanggapan }}</p>
                 @endif
             </div>
             <hr>

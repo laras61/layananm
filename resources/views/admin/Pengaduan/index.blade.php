@@ -55,7 +55,7 @@
                             <a href="#" class="badge badge-success">Selesai</a>
                         @endif
                     </td>
-                    <td><a href="{{ route('pengaduan.show', $v->id_pengaduan) }}" style="text-decoration: underline">Lihat</a></td>
+                    <td><a href="{{ route('pengaduan.show', $v->id_pengaduan) }}" style="text-decoration: underline">Tanggapi</a></td>
                 </tr>
             @endforeach
 

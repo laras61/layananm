@@ -25,6 +25,11 @@ class Pengaduan extends Model
 
     protected $dates = ['tgl_pengaduan', 'tgl_kejadian'];
 
+    public function tanggapan()
+    {
+        return $this->hasOne(Tanggapan::class, 'id_pengaduan');
+    }
+
     public function user()
     {
         return $this->hasOne(Masyarakat::class,'nik','nik');

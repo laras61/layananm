@@ -17,4 +17,16 @@ class Tanggapan extends Model
         'isi_tanggapan',
         'id_petugas'
     ];
+
+    //TANGGAPAN
+
+    public function pengaduan()
+    {
+        return $this->belongsTo(Pengaduan::class, 'id_pengaduan');
+    }
+
+    public function petugas()
+    {
+        return $this->belongsTo(Petugas::class, 'id_petugas');
+    }
 }

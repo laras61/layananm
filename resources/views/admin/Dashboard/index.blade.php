@@ -32,7 +32,7 @@
 <div class="row">
     <div class="col-lg-3">
         <div class="card border mb-3" style="color: #ABB6C8; max-width: 18rem; ">
-            <div class="card-header text-white" style="background-color: #ABB6C8;">Pengaduan Terverifikasi</div>
+            <div class="card-header text-white" style="background-color: #ABB6C8;">Total Pengaduan</div>
             <div class="card-body text-center">{{ $pengaduan}}</div>
         </div>
     </div>

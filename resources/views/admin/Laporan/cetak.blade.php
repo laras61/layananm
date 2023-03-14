@@ -48,6 +48,8 @@
                                 <p>Corona Virus</p>
                             @elseif ($v->kategori == 'kesehatan')
                                 <p>Pelayanan Kesehatan</p>
+                            @elseif ($v->kategori == 'lalulintas')
+                                <p>Lalu Lintas</p>
                             @elseif ($v->kategori == 'lingkungan')
                                 <p>Lingkungan Hidup</p>
                             @elseif ($v->kategori == 'dikbud')

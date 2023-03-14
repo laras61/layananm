@@ -11,11 +11,16 @@
 {{-- Section Header --}}
 <section class="header">
     <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-        <div class="container">
+        {{-- <div class="container"> --}}
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ route('pekat.index') }}">
-                    <h4 class="semi-bold mb-0 text-white">LARAS</h4>
-                    <p class="italic mt-0 text-white">Layanan Resmi Aduan Masyarakat</p>
+                    <div class="d-flex">
+                        <img src="images/kota.png" style="width: 5%; height: 10%" alt="icon">
+                        <div >
+                            <h4 class="semi-bold mb-0 text-white">LARAS
+                            <p class="italic mt-0 text-white">Layanan Resmi Aduan Masyarakat</p>
+                        </div>
+                    </div>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,12 +50,11 @@
                     @endauth
                 </div>
             </div>
-        </div>
+        {{-- </div> --}}
     </nav>
-
 </section>
 {{-- Section Card --}}
-<div class="container">
+<div class="container main-form" >
     <div class="row justify-content-between">
         <div class="col-lg-8 col-md-12 col-sm-12 col-12 col">
             <div class="content content-top shadow">
@@ -79,6 +83,7 @@
                                     <option value="agama">Agama</option>
                                     <option value="covid">Corona Virus</option>
                                     <option value="kesehatan">Kesehatan</option>
+                                    <option value="lalulintas">Lalu Lintas</option>
                                     <option value="lingkungan">Lingkungan Hidup</option>
                                     <option value="dikbud">Pendidikan dan Kebudayaan</option>
                                     <option value="sosial">Sosial</option>
@@ -165,7 +170,7 @@
                 <p>{{ $v->isi_laporan }}</p>
             </div>
             <div class="laporan-bottom">
-                
+
                 @if ($v->foto != null)
                     <img src="{{ Illuminate\Support\Facades\Storage::url($v->foto) }}" alt="{{ 'Gambar '.$v->judul }}" class="gambar-lampiran">
                 @endif

@@ -30,7 +30,7 @@
         <div class="col-lg-8 col-12">
             <div class="card">
                 <div class="card-header text-white" style="background-color: #2e3d50;">
-                    Data Berdasarkan Tanggal
+                    Data Pengaduan Masyarakat
                     <div class="float-right">
                         @if ($pengaduan ?? '')
                             <a href="{{ route('laporan.cetakLaporan', ['from' => $from, 'to' => $to]) }}" class="btn btn-danger">EXPORT PDF</a>
@@ -75,5 +75,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="row">
+
     </div>
 @endsection

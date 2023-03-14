@@ -16,7 +16,7 @@
                     <div class="d-flex">
                         <img src="images/kota.png" style="width: 5%; height: 10%" alt="icon">
                         <div >
-                            <h4 class="semi-bold mb-0 text-white">LARAS
+                            <h4 class="semi-bold mb-0 text-white" style="font-size: 20px">LARAS
                             <p class="italic mt-0 text-white">Layanan Resmi Aduan Masyarakat</p>
                         </div>
                     </div>
@@ -67,7 +67,6 @@
 <div class="row justify-content-center">
     <div class="col-lg-6 col-10 col">
         <div class="content shadow">
-
             @if ($errors->any())
                 @foreach ($errors->all() as $error)
                     <div class="alert alert-danger">{{ $error }}</div>
@@ -80,7 +79,8 @@
 
             <form action="{{ route('pekat.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <div class="form-group">
+                <div class="form-group ">
+                    <div class="card mb-3">Tulis Laporan Disini</div>
                     <input name="judul" class="form-control mb-2" placeholder="Masukkan Judul Laporan" rows="2">
                     <textarea name="isi_laporan" placeholder="Masukkan Isi Laporan" class="form-control"
                         rows="4">{{ old('isi_laporan') }}</textarea>
@@ -94,6 +94,7 @@
                             <option value="agama">Agama</option>
                             <option value="covid">Corona Virus</option>
                             <option value="kesehatan">Pelayanan Kesehatan</option>
+                            <option value="lalulintas">Lalu Lintas</option>
                             <option value="lingkungan">Lingkungan Hidup</option>
                             <option value="dikbud">Pendidikan dan Kebudayaan</option>
                             <option value="sosial">Sosial</option>

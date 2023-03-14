@@ -26,8 +26,8 @@
             @foreach ($pengaduan as $k => $v )
                 <tr>
                     <td>{{ $k += 1 }}</td>
-                    <td>{{ $v->judul}}</td>
                     <td>{{ $v->tgl_pengaduan->format('d-M-Y')}}</td>
+                    <td>{{ $v->judul}}</td>
                     <td>{{ $v->isi_laporan }}</td>
                     <td>{{ $v->tgl_kejadian->format('d-M-Y')}}</td>
                     <td>{{ $v->lokasi}}</td>
@@ -38,6 +38,8 @@
                             <p>Corona Virus</p>
                         @elseif ($v->kategori == 'kesehatan')
                             <p>Pelayanan Kesehatan</p>
+                        @elseif ($v->kategori == 'lalulintas')
+                            <p>Lalu Lintas</p>
                         @elseif ($v->kategori == 'lingkungan')
                             <p>Lingkungan Hidup</p>
                         @elseif ($v->kategori == 'dikbud')

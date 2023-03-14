@@ -99,7 +99,7 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 .italic {
@@ -130,7 +130,12 @@ body {
     width: 100%;
 }
 
-.navbar .container-fluid #navbarNav .navbar-nav .nav-item .btn-outline-purple:hover {
+.navbar
+    .container-fluid
+    #navbarNav
+    .navbar-nav
+    .nav-item
+    .btn-outline-purple:hover {
     color: #2e3d50;
     border: 1px solid #fff;
     background: #fff;
@@ -146,6 +151,10 @@ body {
 
 .row .col {
     z-index: 1001;
+}
+
+.main-form {
+    margin-top: -70px;
 }
 
 @media screen and (max-width: 576px) {

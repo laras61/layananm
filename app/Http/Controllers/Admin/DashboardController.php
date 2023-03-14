@@ -18,10 +18,12 @@ class DashboardController extends Controller
 
         $pengaduan = Pengaduan::all()->count();
 
+        $terverifikasi = Pengaduan::where( 'status', '!=', '0')->get()->count();
+
         $proses = Pengaduan::where('status', 'proses')->get()->count();
 
         $selesai = Pengaduan::where('status', 'selesai')->get()->count();
 
-        return view('Admin.Dashboard.index', ['petugas' => $petugas, 'masyarakat' => $masyarakat, 'pengaduan' => $pengaduan, 'proses' => $proses, 'selesai' => $selesai]);
+        return view('Admin.Dashboard.index', ['petugas' => $petugas, 'masyarakat' => $masyarakat, 'pengaduan' => $pengaduan, 'terverifikasi' => $terverifikasi, 'proses' => $proses, 'selesai' => $selesai]);
     }
 }
